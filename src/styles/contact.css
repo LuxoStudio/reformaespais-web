@@ -1,0 +1,151 @@
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+  padding: 8rem 0;
+  background: #f7f6f3;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 5rem;
+}
+
+/* ---------- Información ---------- */
+
+.contact-info h3 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.contact-info p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+
+.contact-info ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.contact-info li {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid #e8e4db;
+}
+
+.contact-info strong {
+  color: #222;
+  margin-bottom: .35rem;
+  font-size: .95rem;
+}
+
+.contact-info span {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* ---------- Formulario ---------- */
+
+.contact-form {
+  background: #ffffff;
+  padding: 2.8rem;
+  border-radius: 24px;
+  border: 1px solid #ebe7de;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.04);
+}
+
+.contact-form input,
+.contact-form textarea {
+
+  width: 100%;
+
+  padding: 1rem 1.2rem;
+
+  border: 1px solid #dedad1;
+
+  border-radius: 14px;
+
+  background: #fff;
+
+  color: #222;
+
+  font-family: inherit;
+  font-size: 1rem;
+
+  transition:
+    border-color .3s ease,
+    box-shadow .3s ease;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+  outline: none;
+
+  border-color: var(--verde);
+
+  box-shadow: 0 0 0 4px rgba(143,164,107,.12);
+
+}
+
+.contact-form textarea {
+
+  min-height: 170px;
+
+  resize: vertical;
+
+}
+
+.contact-form button {
+
+  width: fit-content;
+
+  margin-top: .75rem;
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 992px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .contact {
+    padding: 6rem 0;
+  }
+
+  .contact-form {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  .contact-info h3 {
+    font-size: 2rem;
+  }
+
+}

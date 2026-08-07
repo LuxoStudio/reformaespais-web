@@ -1,0 +1,426 @@
+/* ===========================
+   NAVBAR
+=========================== */
+
+body.menu-open{
+  overflow:hidden;
+}
+
+.navbar{
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition:
+    top .35s ease,
+    transform .35s ease,
+    opacity .35s ease;
+}
+
+.navbar .container{
+  max-width: 1240px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 30px;
+
+  background: rgba(255,255,255,.82);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,.65);
+
+  border-radius: 22px;
+
+  box-shadow:
+      0 10px 40px rgba(0,0,0,.08);
+
+  transition: all .35s ease;
+}
+
+.navbar.scrolled .container{
+
+  background: rgba(255,255,255,.95);
+
+  box-shadow:
+      0 18px 50px rgba(0,0,0,.14);
+
+}
+
+/* ===========================
+LOGO
+=========================== */
+
+.logo{
+
+  display:flex;
+  align-items:center;
+
+  font-size:1.9rem;
+
+  font-weight:700;
+
+  letter-spacing:-.03em;
+
+  color:#222;
+
+  text-decoration:none;
+
+  transition:.25s;
+
+}
+
+.logo:hover{
+
+  opacity:.8;
+
+}
+
+/* ===========================
+MENU DESKTOP
+=========================== */
+
+.nav-menu{
+
+  display:flex;
+
+  gap:34px;
+
+  margin-left:auto;
+
+}
+
+.nav-menu a{
+
+  position:relative;
+
+  color:#444;
+
+  text-decoration:none;
+
+  font-weight:500;
+
+  transition:.25s;
+
+}
+
+.nav-menu a::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  bottom:-8px;
+
+  width:0;
+
+  height:2px;
+
+  background:#7D8F68;
+
+  transition:.3s;
+
+}
+
+.nav-menu a:hover{
+
+  color:#111;
+
+}
+
+.nav-menu a:hover::after{
+
+  width:100%;
+
+}
+
+/* ===========================
+BOTÓN
+=========================== */
+
+.btn-navbar{
+
+  padding:15px 30px;
+
+  background:#7D8F68;
+
+  color:#fff;
+
+  border-radius:999px;
+
+  font-weight:600;
+
+  transition:all .25s ease;
+
+}
+
+.btn-navbar:hover{
+
+  transform:translateY(-2px);
+
+  background:#70805e;
+
+  box-shadow:
+      0 12px 25px rgba(125,143,104,.28);
+
+}
+
+/* ===========================
+HAMBURGUESA
+=========================== */
+
+.menu-toggle{
+
+  display:none;
+
+  width:46px;
+
+  height:46px;
+
+  border:none;
+
+  background:white;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-direction:column;
+
+  gap:5px;
+
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+}
+
+.menu-toggle span{
+
+  width:22px;
+
+  height:2px;
+
+  background:#222;
+
+  border-radius:99px;
+
+  transition:.35s;
+
+}
+
+/* X */
+
+.menu-toggle.active span:nth-child(1){
+
+  transform:translateY(7px) rotate(45deg);
+
+}
+
+.menu-toggle.active span:nth-child(2){
+
+  opacity:0;
+
+}
+
+.menu-toggle.active span:nth-child(3){
+
+  transform:translateY(-7px) rotate(-45deg);
+
+}
+
+/* ===========================
+OVERLAY
+=========================== */
+
+.mobile-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.35);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:.3s;
+
+  z-index:998;
+
+}
+
+.mobile-overlay.show{
+
+  opacity:1;
+
+  visibility:visible;
+
+}
+
+/* ===========================
+MENÚ MÓVIL
+=========================== */
+
+.mobile-menu{
+    display: none;
+
+  position:fixed;
+
+  top:95px;
+
+  left:50%;
+
+  transform:translate(-50%,-20px);
+
+  width:min(92%,420px);
+
+  background:white;
+
+  border-radius:18px;
+
+  padding:28px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:20px;
+
+  box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:.35s;
+
+  z-index:999;
+
+}
+
+.mobile-menu.open{
+
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%,0);
+
+
+}
+
+.mobile-menu a{
+
+  text-decoration:none;
+
+  color:#333;
+
+  font-weight:600;
+
+}
+
+.mobile-btn{
+
+  margin-top:10px;
+
+  text-align:center;
+
+  background:#7D8F68;
+
+  color:white !important;
+
+  padding:14px;
+
+  border-radius:999px;
+
+}
+
+/* ===========================
+FOCUS
+=========================== */
+
+.logo:focus-visible,
+.nav-menu a:focus-visible,
+.btn-navbar:focus-visible,
+.menu-toggle:focus-visible,
+.mobile-menu a:focus-visible{
+
+  outline:3px solid rgba(125,143,104,.45);
+
+  outline-offset:4px;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+  .navbar{
+
+      top:12px;
+
+  }
+
+  .navbar .container{
+
+      padding:14px 18px;
+
+  }
+
+  .nav-menu{
+
+      display:none;
+
+  }
+
+  .btn-navbar{
+
+      display:none;
+
+  }
+
+  .menu-toggle{
+
+      display:flex;
+
+  }
+
+}
+
+@media(min-width:901px){
+
+  .mobile-menu{
+
+      display:none;
+
+  }
+
+  .mobile-overlay{
+
+      display:none;
+
+  }
+
+}
+
+@media(max-width:520px){
+
+  .logo{
+
+      font-size:1.2rem;
+
+  }
+
+}

@@ -1,0 +1,60 @@
+<header class="navbar" role="banner">
+  <div class="container">
+
+    <a
+      href="/"
+      class="logo"
+      aria-label="Ir al inicio de Reforma Espais"
+    >
+      Reforma <span>Espais</span>
+    </a>
+
+    <nav
+      class="nav-menu"
+      aria-label="Navegación principal"
+    >
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a
+      href="https://wa.me/34616228442"
+      class="btn-navbar"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Solicitar presupuesto por WhatsApp"
+    >
+      Pedir presupuesto
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+<script>
+  const navbar = document.querySelector(".navbar");
+
+  if (navbar) {
+    const updateNavbar = () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 80);
+    };
+
+    updateNavbar();
+
+    window.addEventListener("scroll", updateNavbar, {
+      passive: true,
+    });
+  }
+</script>

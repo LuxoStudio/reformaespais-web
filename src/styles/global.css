@@ -1,0 +1,333 @@
+@import "./navbar.css";
+@import "./services.css";
+@import "./whyus.css";
+@import "./projects.css";
+@import "./beforeafter.css";
+@import "./process.css";
+@import "./testimonials.css";
+@import "./contact.css";
+@import "./cta.css";
+@import "./footer.css";
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+  font-family:Inter,Arial,sans-serif;
+
+  background:#F7F6F3;
+
+  color:#222;
+
+  font-size:var(--fs-body);
+
+  line-height:var(--lh-body);
+
+  -webkit-font-smoothing:antialiased;
+
+  text-rendering:optimizeLegibility;
+
+}
+h1,
+h2,
+h3,
+h4{
+
+  color:#1f1f1f;
+
+  font-weight:700;
+
+  line-height:var(--lh-title);
+
+  letter-spacing:var(--letter-tight);
+
+}
+
+h1{
+
+  font-size:var(--fs-h1);
+
+}
+
+h2{
+
+  font-size:var(--fs-h2);
+
+}
+
+h3{
+
+  font-size:var(--fs-h3);
+
+}
+
+p{
+
+  color:#666;
+
+  line-height:var(--lh-body);
+
+}
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+
+    /* Colores */
+
+    --verde:#8FA46B;
+    --verde-hover:#7B915A;
+
+    --texto:#222;
+    --texto-secundario:#666;
+
+    --blanco:#fff;
+
+    --fondo:#F7F6F3;
+
+    /* Layout */
+
+    --ancho:1320px;
+
+    /* Bordes */
+
+    --radius-sm:16px;
+    --radius-md:24px;
+    --radius-lg:32px;
+
+    /* Sombras */
+
+    --shadow-sm:0 8px 20px rgba(0,0,0,.04);
+    --shadow-md:0 18px 45px rgba(0,0,0,.08);
+    --shadow-lg:0 28px 70px rgba(0,0,0,.12);
+
+    /* Animaciones */
+
+    --transition:.35s cubic-bezier(.22,.61,.36,1);
+
+}
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+
+    width:min(92%,var(--ancho));
+
+    margin:auto;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    position:relative;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.48);
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:min(92%,1200px);
+
+    margin:auto;
+
+    padding-top:80px;
+
+    color:white;
+
+}
+
+.hero h1{
+
+    font-size:clamp(52px,6vw,82px);
+
+    line-height:1.05;
+
+    max-width:650px;
+
+    font-weight:800;
+
+    margin-bottom:24px;
+
+    letter-spacing:-2px;
+
+}
+
+.hero p{
+
+    font-size:clamp(20px,2vw,28px);
+
+    max-width:560px;
+
+    color:rgba(255,255,255,.92);
+
+    margin-bottom:50px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.5rem;
+
+    padding:1rem 2rem;
+
+    border-radius:999px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.btn-primary{
+
+    background:var(--verde);
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--verde-hover);
+
+}
+
+.btn-secondary{
+
+    border:2px solid white;
+
+    color:white;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:#222;
+
+}
+/* =====================================================
+   REFORMA ESPAIS · DESIGN SYSTEM v1
+===================================================== */
+
+:root{
+
+  --radius-card:24px;
+  --radius-button:999px;
+
+  --shadow-sm:0 8px 20px rgba(0,0,0,.04);
+  --shadow-md:0 18px 45px rgba(0,0,0,.08);
+  --shadow-lg:0 28px 70px rgba(0,0,0,.12);
+
+  --transition:.35s cubic-bezier(.22,.61,.36,1);
+
+  --green:#7D8F68;
+  --green-dark:#6B7D58;
+
+  --card-border:rgba(0,0,0,.06);
+  /* Tipografía */
+
+--fs-display: clamp(2.6rem, 5vw, 4.4rem);
+--fs-h1: clamp(2.2rem, 4vw, 3.2rem);
+--fs-h2: clamp(1.9rem, 3vw, 2.6rem);
+--fs-h3: 1.35rem;
+
+--fs-body: 1rem;
+--fs-small: .95rem;
+
+--lh-title: 1.15;
+--lh-body: 1.75;
+
+--letter-tight: -.03em;
+
+}
