@@ -143,100 +143,171 @@ a{
 
 }
 
-
 /* =========================
    HERO
 ========================= */
 
-.hero{
+.hero {
+  position: relative;
 
-    position:relative;
+  height: 100vh;
+  min-height: 680px;
 
-    height:100vh;
+  overflow: hidden;
 
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
+  display: flex;
+  align-items: center;
 }
 
-.hero-image{
 
-    position:absolute;
+/* =========================
+   HERO IMAGE
+========================= */
 
-    inset:0;
+.hero-image {
+  position: absolute;
 
-    width:100%;
+  inset: 0;
 
-    height:100%;
+  width: 100%;
+  height: 100%;
 
-    object-fit:cover;
-
+  object-fit: cover;
 }
 
-.overlay{
 
-    position:absolute;
+/* =========================
+   HERO OVERLAY
+========================= */
 
-    inset:0;
+.hero-overlay {
+  position: absolute;
 
-    background:rgba(0,0,0,.48);
+  inset: 0;
 
+  background: rgba(0, 0, 0, .34);
+
+  z-index: 1;
 }
 
-.hero-content{
 
-    position:relative;
+/* =========================
+   HERO CONTENT
+========================= */
 
-    z-index:5;
+.hero-content {
+  position: relative;
 
-    width:min(92%,1200px);
+  z-index: 5;
 
-    margin:auto;
+  width: min(92%, 1200px);
 
-    padding-top:80px;
+  margin: auto;
 
-    color:white;
+  padding-top: 80px;
 
+  color: #111;
 }
 
-.hero h1{
 
-    font-size:clamp(52px,6vw,82px);
+/* =========================
+   HERO TITLE
+========================= */
 
-    line-height:1.05;
+.hero h1 {
+  font-size: clamp(52px, 6vw, 82px);
 
-    max-width:650px;
+  line-height: 1.05;
 
-    font-weight:800;
+  max-width: 650px;
 
-    margin-bottom:24px;
+  font-weight: 800;
 
-    letter-spacing:-2px;
+  margin-bottom: 24px;
 
+  letter-spacing: -2px;
+
+  color: #111;
+
+  /*
+    Mantiene el texto negro pero mejora
+    muchísimo la separación respecto a la fotografía.
+  */
+
+  text-shadow:
+    0 0 2px rgba(255, 255, 255, .95),
+    0 0 8px rgba(255, 255, 255, .65);
 }
 
-.hero p{
 
-    font-size:clamp(20px,2vw,28px);
+/* =========================
+   HERO TEXT
+========================= */
 
-    max-width:560px;
+.hero p {
+  font-size: clamp(20px, 2vw, 28px);
 
-    color:rgba(255,255,255,.92);
+  line-height: 1.45;
 
-    margin-bottom:50px;
+  max-width: 560px;
 
+  color: rgba(255, 255, 255, .95);
+
+  margin-bottom: 50px;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, .35);
 }
 
-.hero-buttons{
 
-    display:flex;
+/* =========================
+   HERO BUTTONS
+========================= */
 
-    gap:20px;
+.hero-buttons {
+  display: flex;
 
-    flex-wrap:wrap;
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================
+   HERO MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 720px;
+  }
+
+  .hero-content {
+    width: min(90%, 520px);
+
+    padding-top: 90px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 12vw, 58px);
+
+    line-height: 1.02;
+
+    letter-spacing: -1.5px;
+  }
+
+  .hero p {
+    font-size: 19px;
+
+    line-height: 1.45;
+
+    margin-bottom: 35px;
+  }
+
+  .hero-buttons {
+    gap: 14px;
+  }
 
 }
 

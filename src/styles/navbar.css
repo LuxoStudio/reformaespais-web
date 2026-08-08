@@ -85,28 +85,31 @@ LOGO
 MENU DESKTOP
 =========================== */
 
-.nav-menu{
+.nav-menu {
+  display: flex;
 
-  display:flex;
+  gap: 40px;
 
-  gap:34px;
-
-  margin-left:auto;
-
+  margin-left: auto;
+  margin-right: 34px;
 }
 
-.nav-menu a{
+.nav-menu a {
+  position: relative;
 
-  position:relative;
+  color: #2f2f2f;
 
-  color:#444;
+  text-decoration: none;
 
-  text-decoration:none;
+  font-size: 17px;
 
-  font-weight:500;
+  font-weight: 600;
 
-  transition:.25s;
+  white-space: nowrap;
 
+  transition:
+    color .25s ease,
+    transform .25s ease;
 }
 
 .nav-menu a::after{
@@ -145,20 +148,22 @@ MENU DESKTOP
 BOTÓN
 =========================== */
 
-.btn-navbar{
+.btn-navbar {
+  padding: 15px 30px;
 
-  padding:15px 30px;
+  background: #7D8F68;
 
-  background:#7D8F68;
+  color: #fff;
 
-  color:#fff;
+  border-radius: 999px;
 
-  border-radius:999px;
+  font-weight: 600;
 
-  font-weight:600;
+  font-size: 15px;
 
-  transition:all .25s ease;
+  white-space: nowrap;
 
+  transition: all .25s ease;
 }
 
 .btn-navbar:hover{
