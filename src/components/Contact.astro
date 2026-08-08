@@ -9,20 +9,30 @@
       <h2>¿Empezamos tu reforma?</h2>
 
       <p>
-        Cuéntanos qué necesitas. Estudiaremos tu proyecto y prepararemos un presupuesto personalizado, sin compromiso.
+        Cuéntanos qué necesitas. Estudiaremos tu proyecto y prepararemos
+        un presupuesto personalizado, sin compromiso.
       </p>
 
     </div>
 
+
     <div class="contact-grid">
+
+
+      <!-- =========================================
+           INFORMACIÓN DE CONTACTO
+      ========================================== -->
 
       <div class="contact-info">
 
         <h3>Hablemos de tu proyecto</h3>
 
         <p>
-          Nos gusta trabajar de forma cercana y transparente desde el primer contacto. Resolveremos tus dudas y te asesoraremos para encontrar la mejor solución para tu vivienda.
+          Nos gusta trabajar de forma cercana y transparente desde el
+          primer contacto. Resolveremos tus dudas y te asesoraremos
+          para encontrar la mejor solución para tu vivienda.
         </p>
+
 
         <ul>
 
@@ -50,29 +60,48 @@
 
       </div>
 
-      <form class="contact-form">
+
+      <!-- =========================================
+           FORMULARIO
+      ========================================== -->
+
+      <form
+        class="contact-form"
+        id="contact-form"
+      >
 
         <input
+          id="contact-name"
           type="text"
           placeholder="Nombre"
+          required
         >
 
         <input
+          id="contact-email"
           type="email"
           placeholder="Correo electrónico"
+          required
         >
 
         <input
+          id="contact-phone"
           type="tel"
           placeholder="Teléfono"
+          required
         >
 
         <textarea
+          id="contact-message"
           rows="6"
           placeholder="Cuéntanos tu proyecto..."
+          required
         ></textarea>
 
-        <button class="btn btn-primary" type="submit">
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
           Solicitar presupuesto
         </button>
 
@@ -83,3 +112,75 @@
   </div>
 
 </section>
+
+
+<script>
+
+  const contactForm =
+    document.querySelector("#contact-form");
+
+
+  if (contactForm) {
+
+    contactForm.addEventListener(
+      "submit",
+      (event) => {
+
+        event.preventDefault();
+
+
+        const name =
+          document
+            .querySelector("#contact-name")
+            .value
+            .trim();
+
+
+        const email =
+          document
+            .querySelector("#contact-email")
+            .value
+            .trim();
+
+
+        const phone =
+          document
+            .querySelector("#contact-phone")
+            .value
+            .trim();
+
+
+        const message =
+          document
+            .querySelector("#contact-message")
+            .value
+            .trim();
+
+
+        const whatsappMessage =
+`Hola, soy ${name}.
+
+Email: ${email}
+Teléfono: ${phone}
+
+Mi proyecto:
+${message}`;
+
+
+        const whatsappUrl =
+          `https://wa.me/34616228442?text=${encodeURIComponent(
+            whatsappMessage
+          )}`;
+
+
+        window.open(
+          whatsappUrl,
+          "_blank"
+        );
+
+      }
+    );
+
+  }
+
+</script>

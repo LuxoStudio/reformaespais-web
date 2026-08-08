@@ -13,9 +13,9 @@
       class="nav-menu"
       aria-label="Navegación principal"
     >
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto">Contacto</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/#proyectos">Proyectos</a>
+      <a href="/#contacto">Contacto</a>
     </nav>
 
     <a
@@ -41,14 +41,45 @@
     </button>
 
   </div>
+
+  <!-- MENÚ MÓVIL -->
+
+  <nav
+    id="mobile-menu"
+    class="mobile-menu"
+    aria-label="Navegación móvil"
+    aria-hidden="true"
+  >
+    <a href="/#servicios">Servicios</a>
+    <a href="/#proyectos">Proyectos</a>
+    <a href="/#contacto">Contacto</a>
+
+    <a
+      href="https://wa.me/34616228442"
+      class="mobile-menu-button"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Pedir presupuesto
+    </a>
+  </nav>
 </header>
+
 
 <script>
   const navbar = document.querySelector(".navbar");
 
   if (navbar) {
+
+    /* =========================================
+       NAVBAR SCROLL
+    ========================================== */
+
     const updateNavbar = () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 80);
+      navbar.classList.toggle(
+        "scrolled",
+        window.scrollY > 80
+      );
     };
 
     updateNavbar();
@@ -56,5 +87,108 @@
     window.addEventListener("scroll", updateNavbar, {
       passive: true,
     });
+
+
+    /* =========================================
+       MENÚ MÓVIL
+    ========================================== */
+
+    const menuToggle =
+      navbar.querySelector(".menu-toggle");
+
+    const mobileMenu =
+      navbar.querySelector("#mobile-menu");
+
+    if (menuToggle && mobileMenu) {
+
+      const closeMenu = () => {
+
+        navbar.classList.remove("menu-open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          "Abrir menú"
+        );
+
+        mobileMenu.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+      };
+
+
+      const openMenu = () => {
+
+        navbar.classList.add("menu-open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          "Cerrar menú"
+        );
+
+        mobileMenu.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+      };
+
+
+      menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+          navbar.classList.contains("menu-open");
+
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+
+      });
+
+
+      /* Cerrar al pulsar un enlace */
+
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((link) => {
+
+          link.addEventListener(
+            "click",
+            closeMenu
+          );
+
+        });
+
+
+      /* Cerrar con Escape */
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+
+          if (
+            event.key === "Escape" &&
+            navbar.classList.contains("menu-open")
+          ) {
+            closeMenu();
+            menuToggle.focus();
+          }
+
+        }
+      );
+
+    }
+
   }
 </script>
