@@ -2,38 +2,322 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import CTA from "../components/cta.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout
-  title="Reformas Integrales | Reforma Espais"
-  description="Especialistas en reformas integrales en Tarragona."
+  title="Reformas Integrales en Tarragona | Reforma Espais"
+  description="Reformas integrales en Tarragona para transformar tu vivienda de principio a fin. Diseño, coordinación y ejecución cuidando cada detalle."
 >
 
   <Navbar />
 
   <main>
 
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
     <section class="service-hero">
 
       <div class="container">
 
-        <span class="service-badge">
-          REFORMAS INTEGRALES
-        </span>
+        <div class="service-hero-content">
 
-        <h1>
-          Reformas integrales para transformar tu vivienda
-        </h1>
+          <span class="service-badge">
+            REFORMAS INTEGRALES
+          </span>
 
-        <p>
-          Diseñamos y ejecutamos reformas completas adaptadas a tus necesidades,
-          cuidando cada detalle para conseguir espacios funcionales, modernos
-          y duraderos.
-        </p>
+          <h1>
+            Transformamos tu vivienda
+            <span>de principio a fin</span>
+          </h1>
+
+          <p>
+            Diseñamos y ejecutamos reformas integrales en Tarragona
+            para crear espacios más funcionales, actuales y adaptados
+            a la forma en la que quieres vivir.
+          </p>
+
+          <div class="service-hero-actions">
+
+            <a href="#contacto" class="service-btn-primary">
+              Solicitar presupuesto
+            </a>
+
+            <a href="#proceso" class="service-btn-secondary">
+              Cómo trabajamos
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
     </section>
+
+
+    <!-- =========================================
+         INTRODUCCIÓN
+    ========================================== -->
+
+    <section class="service-intro">
+
+      <div class="container">
+
+        <div class="service-intro-grid">
+
+          <div class="service-section-heading">
+
+            <span>UNA REFORMA, UN SOLO EQUIPO</span>
+
+            <h2>
+              Todo el proyecto bajo control
+            </h2>
+
+          </div>
+
+          <div class="service-intro-text">
+
+            <p>
+              Una reforma integral implica mucho más que renovar una
+              vivienda. Hay que coordinar profesionales, materiales,
+              instalaciones, tiempos y decisiones durante todo el proceso.
+            </p>
+
+            <p>
+              En Reforma Espais nos encargamos de todo para que tú no
+              tengas que preocuparte de coordinar cada parte de la obra.
+              Desde la planificación inicial hasta el último acabado.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         QUÉ INCLUYE
+    ========================================== -->
+
+    <section class="service-includes">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <span>QUÉ INCLUYE</span>
+
+          <h2>
+            Una reforma pensada de principio a fin
+          </h2>
+
+          <p>
+            Coordinamos cada parte del proyecto para conseguir un
+            resultado coherente, funcional y cuidado hasta el último detalle.
+          </p>
+
+        </div>
+
+
+        <div class="service-features">
+
+          <article class="service-feature">
+
+            <div class="service-feature-number">
+              01
+            </div>
+
+            <h3>
+              Distribución y diseño
+            </h3>
+
+            <p>
+              Estudiamos la vivienda y planteamos una distribución
+              adaptada a tus necesidades y a la forma en la que quieres
+              aprovechar cada espacio.
+            </p>
+
+          </article>
+
+
+          <article class="service-feature">
+
+            <div class="service-feature-number">
+              02
+            </div>
+
+            <h3>
+              Instalaciones
+            </h3>
+
+            <p>
+              Renovamos y coordinamos las instalaciones necesarias,
+              buscando soluciones seguras, eficientes y preparadas para
+              el día a día.
+            </p>
+
+          </article>
+
+
+          <article class="service-feature">
+
+            <div class="service-feature-number">
+              03
+            </div>
+
+            <h3>
+              Cocina y baños
+            </h3>
+
+            <p>
+              Diseñamos los espacios más importantes de la vivienda
+              cuidando distribución, materiales, iluminación y acabados.
+            </p>
+
+          </article>
+
+
+          <article class="service-feature">
+
+            <div class="service-feature-number">
+              04
+            </div>
+
+            <h3>
+              Acabados e interiorismo
+            </h3>
+
+            <p>
+              Coordinamos revestimientos, pavimentos, carpintería,
+              iluminación y todos los detalles que dan personalidad
+              al resultado final.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PROCESO
+    ========================================== -->
+
+    <section class="service-process" id="proceso">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <span>NUESTRO PROCESO</span>
+
+          <h2>
+            Así hacemos que tu reforma sea más sencilla
+          </h2>
+
+          <p>
+            Te acompañamos durante todo el proyecto con una planificación
+            clara y una comunicación cercana.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+          <article class="process-step">
+
+            <span>01</span>
+
+            <h3>
+              Hablamos de tu proyecto
+            </h3>
+
+            <p>
+              Conocemos la vivienda, tus necesidades, tus ideas y
+              el resultado que quieres conseguir.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span>02</span>
+
+            <h3>
+              Diseñamos la propuesta
+            </h3>
+
+            <p>
+              Definimos distribución, materiales, soluciones y
+              todos los elementos necesarios para llevar adelante
+              la reforma.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span>03</span>
+
+            <h3>
+              Planificamos la obra
+            </h3>
+
+            <p>
+              Coordinamos los diferentes trabajos para mantener
+              el proyecto organizado y reducir imprevistos.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <span>04</span>
+
+            <h3>
+              Ejecutamos y cuidamos los detalles
+            </h3>
+
+            <p>
+              Llevamos a cabo la reforma y supervisamos cada fase
+              hasta entregar el espacio terminado.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CTA
+    ========================================== -->
+
+    <CTA />
+
+
+    <!-- =========================================
+         CONTACTO
+    ========================================== -->
+
+    <Contact />
 
   </main>
 
