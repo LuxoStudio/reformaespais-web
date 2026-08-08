@@ -15,46 +15,317 @@
 
     </div>
 
+
     <div class="projects-grid">
 
-      <article class="project-large">
-        <img src="/projects/cocina-despues.png" alt="Reforma cocina">
+
+      <!-- =========================================
+           COCINA
+      ========================================== -->
+
+      <button
+        class="project-large project-item"
+        type="button"
+        data-image="/projects/cocina-despues.png"
+        data-title="Cocina integral"
+        aria-label="Ver proyecto Cocina integral"
+      >
+
+        <img
+          src="/projects/cocina-despues.png"
+          alt="Reforma de cocina integral"
+        >
+
         <div class="overlay">
+
           <h3>Cocina integral</h3>
+
           <span>Ver proyecto →</span>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="/projects/bano-despues.png" alt="Reforma baño">
+        </div>
+
+      </button>
+
+
+      <!-- =========================================
+           BAÑO
+      ========================================== -->
+
+      <button
+        class="project-card project-item"
+        type="button"
+        data-image="/projects/bano-despues.png"
+        data-title="Baño moderno"
+        aria-label="Ver proyecto Baño moderno"
+      >
+
+        <img
+          src="/projects/bano-despues.png"
+          alt="Reforma de baño moderno"
+        >
+
         <div class="overlay">
+
           <h3>Baño moderno</h3>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="/projects/salon-despues.png" alt="Reforma salón">
+          <span>Ver proyecto →</span>
+
+        </div>
+
+      </button>
+
+
+      <!-- =========================================
+           SALÓN
+      ========================================== -->
+
+      <button
+        class="project-card project-item"
+        type="button"
+        data-image="/projects/salon-despues.png"
+        data-title="Salón"
+        aria-label="Ver proyecto Salón"
+      >
+
+        <img
+          src="/projects/salon-despues.png"
+          alt="Reforma de salón"
+        >
+
         <div class="overlay">
+
           <h3>Salón</h3>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="/projects/terraza-despues.png" alt="Reforma terraza">
+          <span>Ver proyecto →</span>
+
+        </div>
+
+      </button>
+
+
+      <!-- =========================================
+           TERRAZA
+      ========================================== -->
+
+      <button
+        class="project-card project-item"
+        type="button"
+        data-image="/projects/terraza-despues.png"
+        data-title="Terraza"
+        aria-label="Ver proyecto Terraza"
+      >
+
+        <img
+          src="/projects/terraza-despues.png"
+          alt="Reforma de terraza"
+        >
+
         <div class="overlay">
+
           <h3>Terraza</h3>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="/projects/dormitorio-despues.png" alt="Reforma dormitorio">
-        <div class="overlay">
-          <h3>Dormitorio</h3>
+          <span>Ver proyecto →</span>
+
         </div>
-      </article>
+
+      </button>
+
+
+      <!-- =========================================
+           DORMITORIO
+      ========================================== -->
+
+      <button
+        class="project-card project-item"
+        type="button"
+        data-image="/projects/dormitorio-despues.png"
+        data-title="Dormitorio"
+        aria-label="Ver proyecto Dormitorio"
+      >
+
+        <img
+          src="/projects/dormitorio-despues.png"
+          alt="Reforma de dormitorio"
+        >
+
+        <div class="overlay">
+
+          <h3>Dormitorio</h3>
+
+          <span>Ver proyecto →</span>
+
+        </div>
+
+      </button>
+
 
     </div>
 
   </div>
 
 </section>
+
+
+<!-- =========================================
+     LIGHTBOX
+========================================== -->
+
+<div
+  class="project-lightbox"
+  id="project-lightbox"
+  aria-hidden="true"
+>
+
+  <button
+    class="project-lightbox-close"
+    type="button"
+    aria-label="Cerrar proyecto"
+  >
+    ×
+  </button>
+
+
+  <div class="project-lightbox-content">
+
+    <img
+      id="project-lightbox-image"
+      src=""
+      alt=""
+    >
+
+    <h3 id="project-lightbox-title"></h3>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  const projectItems =
+    document.querySelectorAll(".project-item");
+
+  const lightbox =
+    document.querySelector("#project-lightbox");
+
+  const lightboxImage =
+    document.querySelector("#project-lightbox-image");
+
+  const lightboxTitle =
+    document.querySelector("#project-lightbox-title");
+
+  const lightboxClose =
+    document.querySelector(".project-lightbox-close");
+
+
+  if (
+    projectItems.length &&
+    lightbox &&
+    lightboxImage &&
+    lightboxTitle &&
+    lightboxClose
+  ) {
+
+
+    const openLightbox = (item) => {
+
+      const image =
+        item.getAttribute("data-image");
+
+      const title =
+        item.getAttribute("data-title");
+
+
+      if (!image || !title) {
+        return;
+      }
+
+
+      lightboxImage.src = image;
+
+      lightboxImage.alt = title;
+
+      lightboxTitle.textContent = title;
+
+
+      lightbox.classList.add("is-open");
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+
+      document.body.classList.add(
+        "project-lightbox-open"
+      );
+
+    };
+
+
+    const closeLightbox = () => {
+
+      lightbox.classList.remove(
+        "is-open"
+      );
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      document.body.classList.remove(
+        "project-lightbox-open"
+      );
+
+    };
+
+
+    projectItems.forEach((item) => {
+
+      item.addEventListener(
+        "click",
+        () => {
+          openLightbox(item);
+        }
+      );
+
+    });
+
+
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
+
+
+    lightbox.addEventListener(
+      "click",
+      (event) => {
+
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          lightbox.classList.contains("is-open")
+        ) {
+          closeLightbox();
+        }
+
+      }
+    );
+
+  }
+
+</script>
