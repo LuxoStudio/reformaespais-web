@@ -80,7 +80,20 @@ LOGO
   opacity:.8;
 
 }
+.logo-image {
+  display: block;
 
+  width: auto;
+  height: 54px;
+
+  object-fit: contain;
+
+  transition: transform .25s ease;
+}
+
+.logo:hover .logo-image {
+  transform: scale(1.02);
+}
 /* ===========================
 MENU DESKTOP
 =========================== */
@@ -414,5 +427,7 @@ RESPONSIVE
       font-size:1.2rem;
 
   }
-
+.logo-image {
+  height: 48px;
+}
 }

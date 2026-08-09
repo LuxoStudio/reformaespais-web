@@ -1,4 +1,5 @@
 <header class="navbar" role="banner">
+
   <div class="container">
 
     <a
@@ -6,17 +7,27 @@
       class="logo"
       aria-label="Ir al inicio de Reforma Espais"
     >
-      Reforma <span>Espais</span>
+      <img
+        src="/branding/logo-reformaespais.png"
+        alt="Reforma Espais"
+        class="logo-image"
+      />
     </a>
+
 
     <nav
       class="nav-menu"
       aria-label="Navegación principal"
     >
-      <a href="/#servicios">Servicios</a>
-      <a href="/#proyectos">Proyectos</a>
-      <a href="/#contacto">Contacto</a>
+
+      <a href="#servicios">Servicios</a>
+
+      <a href="#proyectos">Proyectos</a>
+
+      <a href="#contacto">Contacto</a>
+
     </nav>
+
 
     <a
       href="https://wa.me/34616228442"
@@ -28,6 +39,7 @@
       Pedir presupuesto
     </a>
 
+
     <button
       class="menu-toggle"
       type="button"
@@ -35,118 +47,162 @@
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
+
       <span></span>
       <span></span>
       <span></span>
+
     </button>
+
+
+    <div
+      class="mobile-overlay"
+      aria-hidden="true"
+    ></div>
+
+
+    <nav
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-label="Navegación móvil"
+    >
+
+      <a href="#servicios">
+        Servicios
+      </a>
+
+      <a href="#proyectos">
+        Proyectos
+      </a>
+
+      <a href="#contacto">
+        Contacto
+      </a>
+
+      <a
+        href="https://wa.me/34616228442"
+        class="mobile-menu-button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Pedir presupuesto
+      </a>
+
+    </nav>
 
   </div>
 
-  <!-- MENÚ MÓVIL -->
-
-  <nav
-    id="mobile-menu"
-    class="mobile-menu"
-    aria-label="Navegación móvil"
-    aria-hidden="true"
-  >
-    <a href="/#servicios">Servicios</a>
-    <a href="/#proyectos">Proyectos</a>
-    <a href="/#contacto">Contacto</a>
-
-    <a
-      href="https://wa.me/34616228442"
-      class="mobile-menu-button"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Pedir presupuesto
-    </a>
-  </nav>
 </header>
 
 
 <script>
-  const navbar = document.querySelector(".navbar");
+
+  const navbar =
+    document.querySelector(".navbar");
+
+  const menuToggle =
+    document.querySelector(".menu-toggle");
+
+  const mobileMenu =
+    document.querySelector(".mobile-menu");
+
+  const mobileOverlay =
+    document.querySelector(".mobile-overlay");
+
 
   if (navbar) {
 
-    /* =========================================
-       NAVBAR SCROLL
-    ========================================== */
-
     const updateNavbar = () => {
+
       navbar.classList.toggle(
         "scrolled",
         window.scrollY > 80
       );
+
     };
 
     updateNavbar();
 
-    window.addEventListener("scroll", updateNavbar, {
-      passive: true,
-    });
+    window.addEventListener(
+      "scroll",
+      updateNavbar,
+      {
+        passive: true
+      }
+    );
+
+  }
 
 
-    /* =========================================
-       MENÚ MÓVIL
-    ========================================== */
+  if (
+    navbar &&
+    menuToggle &&
+    mobileMenu &&
+    mobileOverlay
+  ) {
 
-    const menuToggle =
-      navbar.querySelector(".menu-toggle");
+    const closeMenu = () => {
 
-    const mobileMenu =
-      navbar.querySelector("#mobile-menu");
+      navbar.classList.remove(
+        "menu-open"
+      );
 
-    if (menuToggle && mobileMenu) {
+      document.body.classList.remove(
+        "menu-open"
+      );
 
-      const closeMenu = () => {
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-        navbar.classList.remove("menu-open");
+      menuToggle.setAttribute(
+        "aria-label",
+        "Abrir menú"
+      );
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+      mobileOverlay.classList.remove(
+        "show"
+      );
 
-        menuToggle.setAttribute(
-          "aria-label",
-          "Abrir menú"
-        );
-
-        mobileMenu.setAttribute(
-          "aria-hidden",
-          "true"
-        );
-      };
-
-
-      const openMenu = () => {
-
-        navbar.classList.add("menu-open");
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "true"
-        );
-
-        menuToggle.setAttribute(
-          "aria-label",
-          "Cerrar menú"
-        );
-
-        mobileMenu.setAttribute(
-          "aria-hidden",
-          "false"
-        );
-      };
+    };
 
 
-      menuToggle.addEventListener("click", () => {
+    const openMenu = () => {
+
+      navbar.classList.add(
+        "menu-open"
+      );
+
+      document.body.classList.add(
+        "menu-open"
+      );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Cerrar menú"
+      );
+
+      mobileOverlay.classList.add(
+        "show"
+      );
+
+    };
+
+
+    menuToggle.addEventListener(
+      "click",
+      () => {
 
         const isOpen =
-          navbar.classList.contains("menu-open");
+          navbar.classList.contains(
+            "menu-open"
+          );
 
         if (isOpen) {
           closeMenu();
@@ -154,41 +210,46 @@
           openMenu();
         }
 
+      }
+    );
+
+
+    mobileOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
+
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
       });
 
 
-      /* Cerrar al pulsar un enlace */
+    document.addEventListener(
+      "keydown",
+      (event) => {
 
-      mobileMenu
-        .querySelectorAll("a")
-        .forEach((link) => {
+        if (
+          event.key === "Escape" &&
+          navbar.classList.contains(
+            "menu-open"
+          )
+        ) {
 
-          link.addEventListener(
-            "click",
-            closeMenu
-          );
-
-        });
-
-
-      /* Cerrar con Escape */
-
-      document.addEventListener(
-        "keydown",
-        (event) => {
-
-          if (
-            event.key === "Escape" &&
-            navbar.classList.contains("menu-open")
-          ) {
-            closeMenu();
-            menuToggle.focus();
-          }
+          closeMenu();
 
         }
-      );
 
-    }
+      }
+    );
 
   }
+
 </script>

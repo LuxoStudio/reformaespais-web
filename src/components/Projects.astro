@@ -241,7 +241,20 @@
       }
 
 
-      lightboxImage.src = image;
+      /*
+       * Convertimos la ruta en una URL absoluta.
+       * Esto evita problemas al cargar la imagen
+       * dentro del lightbox.
+       */
+
+      const imageUrl =
+        new URL(
+          image,
+          window.location.origin
+        ).href;
+
+
+      lightboxImage.src = imageUrl;
 
       lightboxImage.alt = title;
 
@@ -320,7 +333,9 @@
           event.key === "Escape" &&
           lightbox.classList.contains("is-open")
         ) {
+
           closeLightbox();
+
         }
 
       }
