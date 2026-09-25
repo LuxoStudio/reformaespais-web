@@ -84,7 +84,7 @@ LOGO
   display: block;
 
   width: auto;
-  height: 54px;
+  height: 68px;
 
   object-fit: contain;
 
@@ -381,7 +381,9 @@ RESPONSIVE
   .navbar .container{
 
       padding:14px 18px;
-
+.logo-image{
+  height:54px;
+}
   }
 
   .nav-menu{
